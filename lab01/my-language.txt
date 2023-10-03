@@ -1,0 +1,92 @@
+var x := 5 - Declares a variable x and initializes it to 5.
+print x - Prints the value of x.
+input x - Reads an integer input into the variable x.
+for i = 1 to n - Basic for loop, where i starts at 1 and increments by 1 until n.
+if (condition) then - Basic if condition.
+end - Ends a block like a loop or condition.
+
+###################################################################################
+
+
+/// Compute the sum of n numbers
+var n := 0
+var sum := 0
+var i := 0
+var number := 0
+
+print "Enter the value of n: "
+input n
+
+for i := 1 to n
+    print "Enter number ", i, ": "
+    input number
+    sum := sum + number
+end
+
+print "The sum of the numbers is: ", sum
+
+
+/// Find the maximum number from n numbers 
+var n := 0
+var max := 0
+var i := 0
+var number := 0
+
+print "Enter the value of n: "
+input n
+
+for i := 1 to n
+    print "Enter number ", i, ": "
+    input number
+    if (number > max) then
+        max := number
+    end
+end
+
+print "The maximum of the numbers is: ", max
+
+
+// Factorial of n
+
+var n = 0
+var factorial = 1
+var i = 0
+
+print "Enter the value of n: "
+input n
+
+for i := 1 to n
+    factorial := factorial * i
+end
+
+print "The factorial of ", n, " is: ", factorial
+
+
+
+
+// Determine if a number is even or odd
+
+var num := 0
+var remainder := 0
+
+print "Enter a number to check if it's even or odd: "
+inpu num // typo for the input keyword
+
+remainder = num % 2  // wrong assignment operator
+
+if (remainder == 0) then
+    print "The number ", num, " is even."
+else
+    print "The number ", num, " is odd."
+end
+
+
+
+
+
+
+
+
+
+
+
