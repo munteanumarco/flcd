@@ -1,0 +1,29 @@
+program = func_decl | stmt_list
+
+func_decl = "func" IDENTIFIER "(" [params] ")" stmt_block
+params = param | param "," params
+param = type IDENTIFIER
+
+stmt_block = "{" stmt_list "}"
+stmt_list = stmt ";" | stmt ";" stmt_list
+
+stmt = decl_stmt | assign_stmt | iostmt | ctrl_stmt | return_stmt | func_decl
+
+decl_stmt = type IDENTIFIER ["=" expression]
+assign_stmt = IDENTIFIER "=" expression
+iostmt = "input" "(" IDENTIFIER ")" | "output" "(" expression ")"
+ctrl_stmt = if_stmt | while_stmt | for_stmt
+return_stmt = "return" [expression]
+
+if_stmt = "if" "(" condition ")" stmt ["else" stmt]
+while_stmt = "while" "(" condition ")" stmt
+for_stmt = "for" "(" decl_stmt/assign_stmt ";" condition ";" assign_stmt ")" stmt
+
+condition = expression REL_OP expression
+REL_OP = "==" | "!=" | "<" | ">" | "<=" | ">="
+
+expression = term | term ADD_OP term
+term = factor | factor MUL_OP factor
+factor = IDENTIFIER | integer_const | string_const | "(" expression ")"
+ADD_OP = "+" | "-"
+MUL_OP = "*" | "/"

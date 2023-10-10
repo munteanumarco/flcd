@@ -1,0 +1,29 @@
+Alphabet:
+
+Upper (A-Z) and lower case letters (a-z) of the English alphabet.
+Decimal digits (0-9).
+Underline character '_'.
+
+Lexic:
+
+Special symbols, representing:
+    Operators: +, -, *, /, =, ==, !=, <, >, <=, >=
+    Separators: (, ), [, ], {, }, ,, ;, <whitespace>, ., :
+
+Reserved words:
+    int, string, func, input, output, if, else, while, for, true, false, return
+
+Identifiers:
+    A sequence of letters and digits, beginning with a letter or the underline character.
+    identifier ::= (letter|"_"){letter|digit|"_"}
+    letter ::= a | b | c | ... | z | A | B | C | ... | Z 
+    digit ::= 0 | 1 | 2 | 3 | ... | 9
+
+Constants:
+    Integer: A sequence of digits.
+    integer_const ::= digit{digit}
+
+String:
+    string_const ::= '"' {char} '"'
+    char ::= letter | digit | special_chars
+    special_chars ::= any character excluding '"'
