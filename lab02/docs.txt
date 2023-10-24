@@ -1,0 +1,33 @@
+Documentation
+
+ListNode Class
+This class represents a node in a singly linked list. It's used for chaining in the HashTable to handle collisions.
+
+Attributes:
+
+value: The value stored in the node.
+next: Reference to the next node in the list. Default is None.
+HashTable Class
+This class provides a basic implementation of a hash table. The hash table employs chaining as a collision resolution technique.
+
+Attributes:
+
+size: The size of the hash table (default is 1000).
+table: A list of ListNode objects.
+Methods:
+
+_hash(value): Private method that computes a hash for the given value and returns an index within the table's range.
+insert(value): Inserts a given value into the hash table.
+search(value): Searches for a given value in the hash table. Returns True if found, otherwise False.
+delete(value): Deletes a value from the hash table. Returns True if the value was found and deleted, otherwise False.
+SymbolTable Class
+This class represents a symbol table that is backed by the HashTable class.
+
+Attributes:
+
+table: An instance of the HashTable class.
+Methods:
+
+insert(value): Inserts a value into the symbol table.
+search(value): Searches for a value in the symbol table. Returns True if found, otherwise False.
+delete(value): Deletes a value from the symbol table. Returns True if the value was found and deleted, otherwise False.
