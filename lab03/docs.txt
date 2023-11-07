@@ -1,0 +1,43 @@
+Scanner Class Documentation
+https://github.com/munteanumarco/flcd
+
+Overview
+The Scanner class tokenizes program files, categorizing text into various token types such as identifiers, constants, and reserved words. It utilizes regex for parsing and manages a symbol table for unique entities.
+
+Attributes
+- program: Text of the file to be scanned.
+- tokens: Token list extracted from the input file.
+- reserved_words: Reserved keywords list.
+- symbol_table: SymbolTable instance for storing entities.
+- PIF: List of token-position pairs for the Program Internal Form.
+- index: Current scanning position in program.
+- current_line: Line number tracker for error reporting.
+- token_positions: Dictionary mapping tokens to line numbers.
+
+Methods
+- __init__(): Sets up the scanner with a symbol table and token list.
+- set_program(program): Prepares the scanner with program content.
+- read_tokens(): Populates tokens and reserved words from a file.
+- parse_spaces(): Advances past whitespace and tracks line numbers.
+- is_string_constant(): Validates string constants via regex.
+- is_int_constant(): Validates integer constants via regex.
+- check_valid_identifier(): Checks if a string qualifies as a valid identifier.
+- is_identifier(): Identifies valid program identifiers.
+- is_token(): Matches program segments to tokens and reserved words.
+- parse_token(): Orchestrates the parsing of different token types.
+- scan(file_name): Scans and tokenizes the program, outputting results.
+
+Usage
+scanner = Scanner()
+scanner.scan("p1.txt")
+
+Error Handling
+Exceptions are raised with messages for any lexical issues.
+
+Output
+Generates Program Internal Form (PIF) and Symbol Table (ST) files post-scanning.
+
+Dependencies
+- re: For regex operations.
+- os: For file path management.
+- symbol_table: For the SymbolTable class.

@@ -1,0 +1,21 @@
+n: int;
+i: int;
+max_num: int;
+number: int;
+
+output("Enter the number of values:");
+input(n);
+
+output("Enter the first number:");
+input(max_num);
+
+for(i = 1; i < n; i = i + 1) {
+    output("Enter number:");
+    input(number);
+    if(number > max_num) {
+        max_num = number;
+    }
+}
+
+output("The maximum number is:");
+output(max_num);

@@ -1,0 +1,10 @@
+number: int;
+
+outpt("Enter a number to determine if its even or odd:");
+input(number);
+
+if(number % 2 == 0) {
+    output("The number is even.");
+} else {
+    output("The number is odd.");
+}

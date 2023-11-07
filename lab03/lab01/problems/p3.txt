@@ -1,0 +1,14 @@
+n: int;
+i: int;
+factorial: int;
+factorial = 1;
+
+output("Enter a number to compute its factorial:");
+input(n);
+
+for(i = 1; i <= n; i = i + 1) {
+    factorial = factorial * i;
+}
+
+output("The factorial of the number is:");
+output(factorial);

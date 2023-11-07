@@ -1,0 +1,16 @@
+n: int;
+i: int;
+sum: int;
+number: int;
+sum = 0;
+
+output("Enter the number of values to sum:");
+input(n);
+for(i = 0; i < n; i = i + 1) {
+    output("Enter number:");
+    input(number);
+    sum = sum + number;
+}
+
+output("The sum is:");
+output(sum);
