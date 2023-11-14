@@ -1,0 +1,25 @@
+The format of the fa.in file in BNF:
+<FA> ::= <States> <Alphabet> <Transitions> <InitialState> <FinalStates>
+<States> ::= <State> { " " <State> }
+<Alphabet> ::= <Symbol> { " " <Symbol> }
+<Transitions> ::= { <State> " " <Symbol> " " <State> <EOL> }
+<InitialState> ::= <State> <EOL>
+<FinalStates> ::= <State> { <EOL> <State> }
+<State> ::= a string representing a state
+<Symbol> ::= a single character
+<EOL> ::= end-of-line marker
+
+
+Methods
+
+__init__(self): Sets up the finite automaton with blank sets for its states, alphabet, and final states, along with an empty dictionary for tracking transitions.
+read_from_file(self, file_name): Reads and assigns the automaton's various elements (such as states, alphabet, transition rules, initial state, and final states) from a designated file.
+accepts(self, sequence): Evaluates whether a specific string (sequence) is accepted by the automaton. Primarily effective for DFAs, but might need adjustments for NFAs, particularly those with ε-transitions or multiple transitions for the same input.
+display(self): Displays information about the automaton, including its states, alphabet, transition rules, initial state, and final states.
+
+Usage Example
+
+fa = FiniteAutomaton()
+fa.read_from_file('FA.in')  # Ensure the format of 'FA.in' is correct
+fa.display()
+print(fa.accepts("some_string"))  # Determine if 'some_string' is accepted by the automaton
