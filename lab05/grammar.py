@@ -1,12 +1,30 @@
 class Grammar:
     EPSILON = "epsilon"
+    STARTING_SYMBOL = "S'"
 
-    def __init__(self):
+    def __init__(self, is_enhanced=False):
         self.N = []
         self.T = []
         self.S = ""
         self.P = {}
         self.duplicated_terminal = False
+        self.is_enhanced = is_enhanced
+
+    def check_if_grammar_is_enhanced(self):
+        if len(self.P[self.S]) != 1:
+            return False
+        for production in self.P.values():
+            for rhs in production:
+                if self.S in rhs:
+                    return False
+        return True
+
+    def make_enhanced_grammar(self):
+        if not self.is_enhanced:
+            self.N.append(Grammar.STARTING_SYMBOL)
+            self.P[Grammar.STARTING_SYMBOL] = [[self.S]]
+            self.S = Grammar.STARTING_SYMBOL
+            self.is_enhanced = True
 
     def __processLine(self, line: str):
         return line.strip().split(' ')[2:]
