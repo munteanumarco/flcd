@@ -6,9 +6,21 @@ class Grammar:
         self.T = []
         self.S = ""
         self.P = {}
+        self.duplicated_terminal = False
 
     def __processLine(self, line: str):
         return line.strip().split(' ')[2:]
+    
+    def check_duplicated_terminal(self):
+        exist_list = []
+        for non_term in self.P:
+            for prods in self.P.get(non_term):
+                for value in prods:
+                    if value in self.T:
+                        if value in exist_list:
+                            self.duplicated_terminal = True
+                        else:
+                            exist_list.append(value)
 
     def readFromFile(self, file_name: str):
         with open(file_name) as file:
@@ -38,6 +50,10 @@ class Grammar:
             self.P = P
 
     def checkCFG(self):
+        self.check_duplicated_terminal()
+        if self.duplicated_terminal:
+            return False
+        
         hasStartingSymbol = False
         for key in self.P.keys():
             if key == self.S:
@@ -52,6 +68,11 @@ class Grammar:
                     if value not in self.N and value not in self.T and value != Grammar.EPSILON:
                         return False
         return True
+
+    def get_production_of_non_terminal(self, non_terminal_key):
+        values = ''
+        values += str(self.P.get(non_terminal_key))
+        return values
 
     def __str__(self):
         result = "Non-terminal symbols = " + str(self.N) + "\n"

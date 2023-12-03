@@ -1,7 +1,8 @@
-N = S A
+N = S A J
 T = a b c
 S = S
 P = 
 	S -> a A
 	A -> b A
 	A -> c
+	J -> c
