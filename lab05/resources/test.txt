@@ -1,0 +1,7 @@
+N = S A
+T = a b c
+S = S
+P = 
+    S -> a A
+    A -> b A
+    A -> c

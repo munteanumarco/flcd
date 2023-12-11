@@ -1,5 +1,6 @@
 from grammar import Grammar
 from lr0_parser import Parser
+from test_lr0_parser import run_all_tests
 
 if __name__ == '__main__':
     g = Grammar()
@@ -13,6 +14,7 @@ if __name__ == '__main__':
         print("2. Check if CFG")
         print("3. Production Set for a Non-Terminal")
         print("4. Print canonical collection")
+        print("5. Run tests for lr0 parser")
         option = input("Option is:")
         if option == '0': 
             break
@@ -29,3 +31,5 @@ if __name__ == '__main__':
         if option == '4':
             for state in parser.canonical_collection:
                 print(state)
+        if option == '5':
+            run_all_tests()
