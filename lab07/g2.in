@@ -1,0 +1,42 @@
+N = program statement statement_list expression_list array_statement compound_statement expression term factor assignment_statement if_statement while_statement for_statement for_header condition relation function_call_statement
+E = ; { } + - * / ) ( <-- --> identifier integer_constant string_constant array [ ] = if else while for < <= == != >= > \n | #
+S = compound_statement
+P =
+    compound_statement ::= statement \n
+    compound_statement ::= statement \n compound_statement
+    statement ::= assignment_statement
+    statement ::= if_statement
+    statement ::= while_statement
+    statement ::= for_statement
+    statement ::= function_call_statement
+    expression ::= expression + term
+    expression ::= expression - term
+    expression ::= term
+    term ::= term * factor
+    term ::= term / factor
+    term ::= factor
+    factor ::= ( expression )
+    factor ::= identifier
+    factor ::= integer_constant
+    function_call_statement ::= <-- ( identifier )
+    function_call_statement ::= --> ( identifier )
+    function_call_statement ::= --> ( integer_constant )
+    function_call_statement ::= --> ( string_constant )
+    assignment_statement ::= identifier = expression
+    assignment_statement ::= identifier = array_statement
+    array_statement ::= [ ]
+    array_statement ::= [ expression_list ]
+    expression_list ::= expression
+    expression_list ::= expression , expression_list
+    if_statement ::= if ( condition ) \n # \n compound_statement #
+    if_statement ::= if ( condition ) \n # \n compound_statement # else \n # \n compound_statement #
+    while_statement ::= while ( condition ) \n # \n compound_statement #
+    for_statement ::= for for_header \n # \n compound_statement #
+    for_header ::= assignment_statement | condition | assignment_statement
+    condition ::= expression relation expression
+    relation ::= <
+    relation ::= <=
+    relation ::= ==
+    relation ::= !=
+    relation ::= >=
+    relation ::= >

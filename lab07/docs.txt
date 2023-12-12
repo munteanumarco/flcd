@@ -1,0 +1,35 @@
+Lab 5 & 6
+
+Enhanced Grammar:
+
+S' -> S
+S -> a A
+A -> b A
+A -> c
+
+s0: S' -> . S
+S -> . a A
+
+goto(s0, S)
+s1: S' -> S .
+
+goto(s0, a)
+s2: S -> a . A
+A -> . b A
+A -> . c
+
+goto(s2, A)
+s3: S -> a A .
+
+goto(s2, b)
+s4:
+A -> b . A
+A -> . b A
+A -> . c
+
+goto(s2, c)
+s5: A -> c .
+
+goto(s4, A)
+s6: A -> b A .
+
