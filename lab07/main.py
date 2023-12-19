@@ -10,8 +10,8 @@ def final_lab_parsing():
     lexical = LanguageLexical()
     token_identifier = TokenIdentifier(lexical)
 
-    print("Analyzing p2...")
-    p1_source = open("examples/p1.in", "r")
+    print("Analyzing p1...")
+    p1_source = open("examples/perr.in", "r")
     token_identifier.read_tokens(p1_source)
 
     tokens = []
@@ -24,6 +24,7 @@ def final_lab_parsing():
     g.make_enhanced_grammar()
     parser = Parser(g)
     parser.create_canonical_collection()
+
     for state in parser.canonical_collection:
         print(state)
 
