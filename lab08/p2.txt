@@ -1,0 +1,24 @@
+program {
+    declare number as integer;
+    declare factorial as integer;
+
+    input(number);
+    factorial gets 1;
+
+    if number greater_than 0 {
+        declare counter as integer;
+        counter gets 1;
+
+        while counter less_than_or_equal_to number {
+            factorial gets factorial times counter;
+            counter gets counter plus 1;
+        }
+    } else {
+        factorial gets 1;
+    }
+
+    display("The factorial of ");
+    display(number);
+    display(" is ");
+    display(factorial);
+}

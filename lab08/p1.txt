@@ -1,0 +1,22 @@
+program {
+    declare a as integer;
+    declare b as integer;
+    declare c as integer;
+    declare smallest as integer;
+
+    input(a);
+    input(b);
+    input(c);
+
+    smallest gets a;
+
+    if smallest greater_than b {
+	    smallest gets b;
+    }
+
+    if smallest greater_than c {
+	    smallest gets c;
+    }
+
+    display(smallest);
+}

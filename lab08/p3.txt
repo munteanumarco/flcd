@@ -1,0 +1,25 @@
+program {
+    declare n as integer, first as integer, second as integer, next as integer, i as integer;
+
+    input(n);
+
+    first gets 0;
+    second gets 1;
+    i gets 0;
+
+    display("Fibonacci series up to ");
+    display(n);
+    display(" terms:");
+
+    while i less_than n {
+        if i less_than_or_equal_to 1 {
+            next gets i;
+        } else {
+            next gets first plus second;
+            first gets second;
+            second gets next;
+        }
+        display(next);
+        i gets i plus 1;
+    }
+}

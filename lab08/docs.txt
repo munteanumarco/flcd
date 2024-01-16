@@ -1,0 +1,5 @@
+flex scanner.lxi => lex.yy.c
+
+gcc -o scanner lex.yy.c -ll => scanner
+
+./scanner examples/p1.txt
